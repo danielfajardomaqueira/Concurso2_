@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class music_manager : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class music_manager : MonoBehaviour
     public AudioClip[] Songs;
 
     private int currentSong;
+
+    public Button playButton, pauseButton;
 
     private AudioSource _audioSource;
 
@@ -70,5 +73,25 @@ public class music_manager : MonoBehaviour
     public void UpdateSongName() {
         songText.text = Songs[currentSong].name;
     }
+
+    public void PlayButtonFunction()
+    {
+        playButton.interactable = false;
+        pauseButton.interactable = true;
+    }
+
+    public void PauseButtonFunction()
+    {
+        playButton.interactable = true;
+        pauseButton.interactable = false;
+    }
+
+    /*
+    public void PlayPauseButtonFunction(bool playButtonHasBeenPressed)
+    {
+        playButton.interactable = !playButtonHasBeenPressed; //false
+        pauseButton.interactable = playButtonHasBeenPressed; //true
+    }
+    */
 
 }
